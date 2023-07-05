@@ -1,0 +1,19 @@
+<div class="bg-image">
+  <img class="background" [src]="product?.imageUrl" alt="Background Image">
+
+  <img class="overlay" style="display: flex;
+  justify-content: center;
+  height: 70vh;
+  width: 70vh;
+  margin-top: 100px;
+  border-radius: 500px;" [src]="product?.imageUrl" alt="Background Image">
+<h1 class="overlay" style="display: flex;
+justify-content: center;
+height: 200vh;
+width: inherit;
+margin-top: 50px;"
+
+>{{product?.name}}</h1>
+
+<p class="description" >{{product?.description}}</p>
+</div>

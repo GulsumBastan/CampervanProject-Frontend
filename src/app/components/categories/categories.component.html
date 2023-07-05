@@ -1,0 +1,7 @@
+<div class="card-component" >
+  <div class="card" *ngFor="let item of categories">
+    <div class="card-body" (click)="goToProductDetail(item.id)">
+      <h5 class="card-title">{{item.name}}</h5>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.card-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: inherit;
+  margin-top: 100px;
+
+}
+
+.card {
+  width: 400px;
+  margin: 18px;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: oblique;
+  color: floralwhite;
+  outline-style: solid;
+  border-radius: 1pc;
+}
+
+.card-body {
+  padding: 10px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 30px;
+  margin-top: 1px;
+}
