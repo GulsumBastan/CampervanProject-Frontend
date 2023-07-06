@@ -1,21 +1,32 @@
-# Angular uygulamasını derlemek için Node.js görüntüsünü kullan
+# # Stage 1: Derleme aşaması
+# FROM node:16 AS build
+# WORKDIR /app
+
+# COPY package*.json ./
+# RUN npm install
+
+# COPY . .
+# RUN npm run build --prod
+
+# # Stage 2: Üretim aşaması
+# FROM nginx:alpine
+# COPY --from=builder /app/dist/campervan-project-frontend /usr/share/nginx/html
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
+# EXPOSE 80
+
+# CMD ["nginx", "-g", "daemon off;"]
+
 FROM node:16 AS build
 WORKDIR /app
 
-# package.json ve package-lock.json dosyalarını kopyala
 COPY package*.json ./
-
-# Bağımlılıkları yükle
 RUN npm install
 
-# Uygulama kaynak dosyalarını kopyala
 COPY . .
+RUN npm run build --prod
 
-# Angular uygulamasını derle
-RUN npm run build
-
-# Üretim aşaması
-FROM nginx:alpine AS final
-COPY --from=build /app/dist /usr/share/nginx/html
+FROM nginx:alpine
+COPY --from=build /app/dist/campervan-project-frontend /usr/share/nginx/html
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]
